@@ -39,6 +39,6 @@ for ii = 1:nHydr
     mgv_mat(ii, :) = mgv';
 end
 
-writematrix(mgv_mat, [pFolder 'mgv.txt'], 'FileType', 'text', 'Delimiter', '\t');
+writematrix(num2str(mgv_mat,'%.2f '), [pFolder 'mgv.txt'], 'Delimiter', '\t');
 
 end
