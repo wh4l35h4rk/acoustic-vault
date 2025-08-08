@@ -12,4 +12,4 @@ opts.BotBC = 'D'; % дирихле (гран.)
 
 mgv = GetHydroMGV(dz0, pFolder, opts);
 egv = GetHydroEGV(mgv, pFolder);
-
+time = ModesDelay(egv, pFolder);
