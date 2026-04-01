@@ -1,14 +1,20 @@
-close all;
-clear variables;
-clc;
+function PlotMGVsDepths(pFolder, H_vec, M_modes, profile_start, profile_end)
+%PLOTMGVSDEPTHS Finds sprouting modes for different widths of bottom sound channel
 
-M_modes = 15;
-h_step = 1.8;
-H_vec = 0 : h_step : h_step * M_modes * 2;
-% H_vec = 0:3:45;
-profile_start = 2;
-profile_end = 3;
-pFolder = 'EXP2-5_tanh-approx/';
+% Function that takes project directory and creates several
+%   variarions of it, changing overall depth on H_vec values. For each of
+%   these variations depth of MGVs are calculated, and first sprouting mode
+%   number is found.
+
+% PARAMETERS:
+% - pFolder: project folder;
+% - H_vec: vector of depths to be added to project's initial depth. it is
+%       advised for it to start with zero;
+% - M_modes: amount of modes calculated;
+% - profile_start: index of first profile in hydrology folder for sprouting
+%       modes to be searched in;
+% - profile_end: index of last profile in hydrology folder for sprouting
+%       modes to be searched in;
 
 hydro_dir = 'hydrology/';
 hydro_model_dir = 'hydrology_model/';
@@ -21,19 +27,15 @@ if exist(fullfile(model_path), 'dir')
 end
 mkdir(fullfile(model_path))
 
-if ~exist(fullfile(pFolder, graphics_dir), 'dir')
-    mkdir(fullfile(pFolder, graphics_dir))
+if exist(fullfile(pFolder, graphics_dir), 'dir')
+    rmdir(fullfile(pFolder, graphics_dir), 's');
 end
+mkdir(fullfile(pFolder, graphics_dir))
 
 
 % prepare set of directories with tanh approximated hydrology
 
 hydro_files = GetFiles([pFolder, hydro_dir, '*.hydr'], '', 'ASC');
-
-cw = readmatrix(fullfile(pFolder, hydro_dir, hydro_files(end).name), FileType="text");
-cw_example_max_depth =  cw(end, 1) * 4;
-
-
 N_hydr = length(hydro_files);
 ranges = zeros(1, N_hydr);
 
@@ -47,9 +49,7 @@ for i = 1:N_hydr
     
     for H = H_vec
         depth_dir = strcat('H', num2str(H), '/');
-        if ~exist(fullfile(model_path, depth_dir, hydro_dir), 'dir')
-            mkdir(fullfile(model_path, depth_dir, hydro_dir))
-        end
+        mkdir(fullfile(model_path, depth_dir, hydro_dir))
 
         ExpandTanhApproxToH(pFolder, range, H_base, H);
     end

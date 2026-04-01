@@ -5,9 +5,14 @@ clc;
 % plot sound speed profile and modal functions on the same figure to
 % illustrate its dependency 
 
-pFolder = 'EXP2_3_2025_10_22/';
+pFolder = 'EXP2-3_loc-intervals/';
 hydro_folder = 'hydrology/';
 bounds_folder = 'modal_localisation_intervals/';
+
+graphics_folder = 'graphics/';
+if ~exist(fullfile(pFolder, graphics_folder), 'dir')
+    mkdir(fullfile(pFolder, graphics_folder))
+end
 
 hydro_files = GetFiles([pFolder, hydro_folder, '*.hydr';], '', 'ASC');
 bounds_files = GetFiles([pFolder, bounds_folder, '*.txt'], '', 'ASC');
@@ -21,7 +26,7 @@ f = 400;
 omega = 2*pi*f; 
 
 
-range_start = 4;
+range_start = 1;
 range_end = 5;
 m_start = 1;
 m_end = 5;
@@ -114,6 +119,8 @@ for i = range_start:range_end
         hold off
 
         sgtitle(['R = ' range ' m']);
+        savefig(strcat(pFolder, graphics_folder, 'R-', range, '_mode-', num2str(M), '.fig'));
+        saveas(gcf, strcat(pFolder, graphics_folder, 'R-', range, '_mode-', num2str(M), '.jpeg'))
     end
 
 

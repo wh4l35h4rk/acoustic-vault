@@ -5,7 +5,7 @@ clc;
 nmod = 10;
 dz = 1;
 f = 400;
-pFolder = 'EXP2_2_2025_09_20/';
+pFolder = 'EXP2-2_time-estimation/';
 hydrFolder = 'hydrology/';
 
 % ModeDecomposition(pFolder,nmod,dz);

@@ -2,9 +2,9 @@ close all;
 clear variables;
 clc;
 
-profile_start = 2;
-profile_end = 3;
-pFolder = 'EXP2-5_tanh-approx/';
+profile_start = 1;
+profile_end = 1;
+pFolder = 'EXP2-6_tanh-variants/original/';
 
 hydro_folder = 'hydrology/';
 wmn_of_r_folder = 'weird_mode_numbers/';
@@ -37,10 +37,11 @@ for i = profile_start:profile_end
 
     figure;
     scatter(wmn_of_z(:, 2) - 1, wmn_of_z(:, 1));
-    title(strcat('Глубина V_{gr} для R = ', num2str(range), ' м'))
+    title(strcat('V_{gr} для R = ', num2str(range), ' м'))
     ylabel("Глубина под термоклином z, м");
     xlabel("Количество мод, помещающихся под термоклином");
 
     savefig(fullfile(pFolder, graphics_folder, strcat('wmn-of-z_', range, '.fig')));
+%     saveas(fullfile(pFolder, graphics_folder, strcat('wmn-of-z_', range, '.jpeg')));
     writematrix(wmn_of_z, fullfile(pFolder, wmn_of_z_folder, strcat('wmn-of-z_', range, '.txt')), "Delimiter", '\t');
 end

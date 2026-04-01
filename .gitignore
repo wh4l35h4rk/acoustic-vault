@@ -4,6 +4,8 @@ Hydrology*.hydr
 results/
 
 *.png
+*.jpg
+*.jpeg
 *.fig
 *.txt
 

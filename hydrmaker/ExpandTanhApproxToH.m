@@ -11,12 +11,6 @@ hydrology_folder = 'hydrology/';
 h_folder = strcat('H', num2str(H), '/');
 file = strcat(sample_range, '.hydr');
 
-% if (is_example == true)
-%     hydrology_folder = '';
-%     h_folder = '';
-%     file = 'example.hydr'; 
-% end
-
 params_folder = 'tanh_params/';
 if ~exist(fullfile(pFolder, model_hydrology_folder, h_folder, hydrology_folder), 'dir')
     mkdir(fullfile(pFolder, model_hydrology_folder, h_folder, hydrology_folder))

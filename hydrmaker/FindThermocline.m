@@ -12,5 +12,5 @@ first = find(d > mean_d, 1);
 last = find(d > mean_d, 1, 'last');
 
 % last = min(length(d), last + 5);
-last = last - 5;
+% last = last - 5;
 end

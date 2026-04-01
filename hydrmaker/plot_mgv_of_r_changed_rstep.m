@@ -6,7 +6,7 @@ clc;
 % profiles are taken not from initial hydrology, but from its interpolated
 % with ac_modes version
 
-pFolder = 'EXP2_4_2025_10_30/';
+pFolder = 'EXP2-4_mgv-r-interp/';
 
 dz = 1;
 opts.nmod = 10;
@@ -36,7 +36,7 @@ figure;
 set(0, 'DefaultAxesFontSize', 14, 'DefaultAxesFontName', 'Arial');
 set(0, 'DefaultTextFontSize', 16, 'DefaultTextFontName', 'Arial'); 
 
-for i = 1:10
+for i = 1:5
     if i > 5; style = '--'; else; style = '-'; end
     plot(range, mgv(:, i), "LineStyle", style, "DisplayName", ['Mode #', int2str(i)], "Marker", ".", "LineWidth", 1);
     hold on;
@@ -45,3 +45,5 @@ grid on;
 legend('Location','northeast');
 xlabel('Range, m');
 ylabel('V_{gr}');
+
+savefig(fullfile(pFolder, 'mgv_of_r_changed_step.fig'));

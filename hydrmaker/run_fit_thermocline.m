@@ -2,6 +2,9 @@ close all;
 clear variables;
 clc;
 
+% for every hydrology file in folder find its corresponding tanh
+% approximation
+
 pFolder = 'EXP2-5_tanh-approx/';
 hydro_folder = 'hydrology/';
 
