@@ -2,7 +2,7 @@ close all;
 clear variables;
 clc;
 
-pFolder = 'EXP2_2_2025_09_20/';
+pFolder = 'EXP2-2_time-estimation/';
 hydro_folder = 'hydrology/';
 
 hydro_files = '*.hydr';

@@ -3,8 +3,8 @@ clear variables;
 clc;
 
 M_modes = 15;
-h_step = 1.8;
-H_vec = 0 : h_step : h_step * M_modes * 2;
+h_step = 3.6;
+H_vec = 0 : h_step : h_step * M_modes;
 % H_vec = 0:3:45;
 profile_start = 2;
 profile_end = 3;

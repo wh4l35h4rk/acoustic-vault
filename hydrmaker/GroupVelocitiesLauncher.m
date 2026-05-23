@@ -7,7 +7,7 @@ clc;
 % - bathymetry data
 % - MainRAMS.txt
 
-pFolder = 'EXP2_3_2025_10_22/';
+pFolder = 'diploma-2026_vgr-shallow/';
 
 dz = 0.5;
 opts.nmod = 10;     % amount of computated modes

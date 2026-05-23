@@ -2,9 +2,13 @@ close all;
 clear variables;
 clc;
 
-pFolder = 'EXP2_2_2025_09_20/';
+pFolder = 'diploma-2026_bottom-sound-channel/';
 RunModel(pFolder);
 
 [aFieldTL, range, depth] = PlotResults(pFolder);
 
 pAx = get(gca,'Position');
+
+ylim([0 130])
+clim([-100 -50])
+colormap(jet)

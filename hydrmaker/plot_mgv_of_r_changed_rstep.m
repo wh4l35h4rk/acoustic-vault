@@ -7,6 +7,8 @@ clc;
 % with ac_modes version
 
 pFolder = 'EXP2-4_mgv-r-interp/';
+lang = 'RUS';
+% lang = 'ENG';
 
 dz = 1;
 opts.nmod = 10;
@@ -36,14 +38,23 @@ figure;
 set(0, 'DefaultAxesFontSize', 14, 'DefaultAxesFontName', 'Arial');
 set(0, 'DefaultTextFontSize', 16, 'DefaultTextFontName', 'Arial'); 
 
-for i = 1:5
+x_label = 'Range, km';
+y_label = 'V_{gr}, m/s';
+mode_label = 'Mode #';
+if strcmp(lang, 'RUS')
+    x_label = 'Расстояние, км';
+    y_label = 'V_{gr}, м/с';
+    mode_label = 'Мода №';
+end
+
+for i = 1:8
     if i > 5; style = '--'; else; style = '-'; end
-    plot(range, mgv(:, i), "LineStyle", style, "DisplayName", ['Mode #', int2str(i)], "Marker", ".", "LineWidth", 1);
+    plot(range / 1000, mgv(:, i), "LineStyle", style, "DisplayName", [mode_label, int2str(i)], "Marker", ".", "LineWidth", 1);
     hold on;
 end
 grid on;
 legend('Location','northeast');
-xlabel('Range, m');
-ylabel('V_{gr}');
+xlabel(x_label);
+ylabel(y_label);
 
-savefig(fullfile(pFolder, 'mgv_of_r_changed_step.fig'));
+savefig(fullfile(pFolder, ['mgv_of_r_changed_step_', lang, '.fig']));

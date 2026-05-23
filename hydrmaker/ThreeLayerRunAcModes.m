@@ -11,7 +11,7 @@ if nargin < 5
     freq = 400;
 end
 if nargin < 4 
-    dz = 1;
+    dz = 0.25;
 end
 
 
@@ -31,10 +31,17 @@ rho_w = 1;                      % water density
 rho_b = 1.7;                    % bottom density
 
 
-MP.HydrologyData = [z' cw];
-MP.LayersData = [[0                  c1 c1 rho_w rho_w 0 0]; 
-                 [water_layers_depth c1 c2 rho_w rho_w 0 0];
-                 [max_depth          c2 cb rho_w rho_b 0 0]];
+% MP.HydrologyData = [z' cw];
+
+MP.HydrologyData = [
+    0                      c1;
+    water_layers_depth - 1 c1;
+    water_layers_depth     c2;
+    max_depth              c2
+];
+MP.LayersData = [[0                  c1 c1 rho_w rho_w 0   0  ]; 
+                 [water_layers_depth c1 c2 rho_w rho_w 0   0  ];
+                 [max_depth          c2 cb rho_w rho_b 0   0.3]];
 
 opts.nmod = n_modes;  
 
@@ -44,7 +51,7 @@ opts.nmod = n_modes;
 if max_depth >= 500
     opts.Hb = max_depth + 500;
 elseif max_depth < 100
-    opts.Hb = 200;
+    opts.Hb = 300;
 else
     opts.Hb = 2 * MP.LayersData(end, 1);
 end
@@ -53,7 +60,7 @@ end
 
 [wNum, wmode] = ac_modesr(dz, MP, freq, opts);
 
-kj_im = ModesAttCoeffs(dz, freq, wNum, wmode, MP);        
-wNum = wNum + 1i*kj_im;
+% kj_im = ModesAttCoeffs(dz, freq, wNum, wmode, MP);        
+%wNum = wNum + 1i*kj_im;
 
 end

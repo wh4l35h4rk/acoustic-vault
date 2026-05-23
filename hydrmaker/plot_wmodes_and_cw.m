@@ -26,10 +26,10 @@ f = 400;
 omega = 2*pi*f; 
 
 
-range_start = 1;
-range_end = 5;
+range_start = 2;
+range_end = 2;
 m_start = 1;
-m_end = 5;
+m_end = 3;
 
 for i = range_start:range_end
     file = hydro_files(i).name;
@@ -91,9 +91,12 @@ for i = range_start:range_end
         plot(c, z);
         ylim([0, z(end)]);
         set(gca, 'YDir', 'reverse');
-        xlabel("c, m/s");
-        ylabel("z, m");
+%         xlabel("c, m/s");
+%         ylabel("z, m");
+        xlabel("c, м/с");
+        ylabel("z, м");
         grid on;
+        set(gca,'FontSize', 14)
         hold on
         yline(b(1));
         yline(b(2));
@@ -108,7 +111,8 @@ for i = range_start:range_end
         plot(mode, z_mode, 'Color', 'red', 'DisplayName', ['Mode #' int2str(M)]);
         ylim([0, z(end)]);
         xlim([-max(abs(mode)), max(abs(mode))]);
-        xlabel(['Modal function #',num2str(M)]);
+%         xlabel(['Modal function #',num2str(M)]);
+        xlabel(['Модовая функция №',num2str(M)]);
         set(gca, 'YDir', 'reverse');
         grid on;
         hold on
@@ -116,11 +120,14 @@ for i = range_start:range_end
         yline(b(2));
         plot(mode(i_high), b(1), 'o', 'Color', 'red')
         plot(mode(i_low), b(2), 'o', 'Color', 'red')
+        set(gca,'FontSize', 14)
         hold off
 
-        sgtitle(['R = ' range ' m']);
-        savefig(strcat(pFolder, graphics_folder, 'R-', range, '_mode-', num2str(M), '.fig'));
-        saveas(gcf, strcat(pFolder, graphics_folder, 'R-', range, '_mode-', num2str(M), '.jpeg'))
+%         sgtitle(['R = ' range ' m']);
+        sgtitle(['R = ' range ' м']);
+        set(gca,'FontSize', 14)
+        savefig(strcat(pFolder, graphics_folder, 'R-', range, '_mode-', num2str(M), '_rus', '.fig'));
+        saveas(gcf, strcat(pFolder, graphics_folder, 'R-', range, '_mode-', num2str(M), '_rus', '.jpeg'))
     end
 
 
