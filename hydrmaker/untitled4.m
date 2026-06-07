@@ -19,7 +19,7 @@ cw_name = cw_name(1:end - 5);
 
 
 for MODE = 1
-    [wnum, wmode] = R(pFolder, PROFILE, 0.25);
+    [wnum, wmode] = RunAcModesModelProfile(pFolder, PROFILE, 0.25);
     wmode = wmode(:, MODE);
     d = size(wmode);
     d = d(1);

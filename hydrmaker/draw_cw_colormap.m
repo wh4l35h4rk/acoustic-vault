@@ -7,8 +7,8 @@ dz = 1;
 f = 400;
 pFolder = 'EXP2-2_time-estimation/';
 hydrFolder = 'hydrology/';
-lang = 'RUS';
-% lang = 'ENG';
+% lang = 'RUS';
+lang = 'ENG';
 
 % ModeDecomposition(pFolder, nmod, dz);
 

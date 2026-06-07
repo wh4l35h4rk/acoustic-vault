@@ -1,0 +1,29 @@
+{
+    "command_line_arguments": [
+        "C:\\Users\\yourd\\Documents\\MATLAB\\acoustic-vault\\ample\\B1_across_05_long\\AMPLE.exe",
+        "rays",
+        "-c",
+        "config.json",
+        "-v",
+        "2",
+        "-o",
+        "output",
+        "--row_step",
+        "1",
+        "--col_step",
+        "1",
+        "-w",
+        "12"
+    ],
+    "computation_time": 53.68,
+    "f": [
+        400.0
+    ],
+    "jobs": [
+        "rays"
+    ],
+    "original_config_path": "config.json",
+    "outputs": [
+        "rays/meta.json"
+    ]
+}

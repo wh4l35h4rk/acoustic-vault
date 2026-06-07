@@ -1,0 +1,123 @@
+{
+    "a0": -0.16,
+    "a1": 0.036,
+    "additive_depth": false,
+    "betas": [
+        0,
+        0.5
+    ],
+    "border_width": 10,
+    "bottom_c1s": [
+        1700
+    ],
+    "bottom_c2s": [
+        1700
+    ],
+    "bottom_layers": [
+        1000
+    ],
+    "bottom_rhos": [
+        2
+    ],
+    "boundary_conditions": {
+        "parameters": {
+            "function": {
+                "parameters": {
+                    "scale": 5.0
+                },
+                "type": "cubic"
+            },
+            "width": 500
+        },
+        "type": "pml"
+    },
+    "c_win": 1500.0,
+    "coefficients": {
+        "parameters": {
+            "n": 11
+        },
+        "type": "ssp"
+    },
+    "complex_modes": true,
+    "const_modes": false,
+    "init": "ray_simple",
+    "input_data": [
+        {
+            "dimensions": [
+                1
+            ],
+            "type": "frequencies",
+            "values": [
+                400
+            ]
+        },
+        {
+            "dimensions": [
+                {
+                    "n": 3,
+                    "values": "x_axe.txt"
+                },
+                {
+                    "n": 2,
+                    "values": "y_axe.txt"
+                }
+            ],
+            "type": "bathymetry",
+            "values": "output/bathymetry/0.txt"
+        },
+        {
+            "dimensions": [
+                2,
+                2
+            ],
+            "type": "hydrology",
+            "values": [
+                [
+                    1500,
+                    1500
+                ],
+                [
+                    1500,
+                    1500
+                ]
+            ]
+        }
+    ],
+    "l0": 0,
+    "l1": 11300,
+    "max_mode": -1,
+    "mnx": 20,
+    "mny": 250,
+    "mode_subset": -1,
+    "n_layers": 1,
+    "n_modes": 10,
+    "na": 351,
+    "nl": 226001,
+    "nx": 10501,
+    "ny": 12001,
+    "nz": 100,
+    "ord_rich": 3,
+    "past_n": 0,
+    "ppm": 70,
+    "reference_index": 0,
+    "sel_range": [
+        -1.0,
+        -1.0
+    ],
+    "sel_strict": false,
+    "tapering": {
+        "parameters": {
+            "value": 0.1
+        },
+        "type": "angled"
+    },
+    "tolerance": 0.02,
+    "x0": 0,
+    "x1": 10500,
+    "y0": -1500,
+    "y1": 1500,
+    "y_s": 0.0,
+    "z0": 0,
+    "z1": 100,
+    "z_s": 5
+}

@@ -7,8 +7,8 @@ clc;
 % with ac_modes version
 
 pFolder = 'EXP2-4_mgv-r-interp/';
-lang = 'RUS';
-% lang = 'ENG';
+% lang = 'RUS';
+lang = 'ENG';
 
 dz = 1;
 opts.nmod = 10;

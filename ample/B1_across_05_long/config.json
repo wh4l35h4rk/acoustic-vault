@@ -1,0 +1,65 @@
+{
+    "ppm": 70,
+    "x0": 0,
+    "x1": 50500,
+    "nx": 2001,
+    "y0": -4000,
+    "y1":  4000,
+    "ny": 1001,
+    "init": "ray_simple",
+	"z_s": 5,
+	"nz": 100,
+	"z0": 0,
+	"z1": 100,
+	"a0": -0.7,
+        "a1": 0.02,
+	"na": 10,
+	"l0": 0,
+	"l1": 51000,
+	"nl": 2001,
+    "const_modes": true,
+    "complex_modes": true,
+    "coefficients": {
+        "type": "ssp",
+        "parameters": {
+            "n": 11
+        }
+    },
+    "bottom_rhos": [2],
+    "bottom_c1s": [1700],
+    "bottom_c2s": [1700],
+    "bottom_layers": [1000],
+    "n_modes": 10,
+    "betas": [0, 0.5],
+	"mny": 250,
+	"mnx": 2,
+	"input_data": [
+        {
+            "type": "frequencies",
+            "dimensions": [ 1 ],
+            "values": [ 400]
+        },
+        {
+            "type": "bathymetry",
+            "dimensions": [
+                {
+                    "n": 3,
+                    "values": "x_axe.txt"
+                },
+                {
+                    "n": 2,
+                    "values": "y_axe.txt"
+                }
+            ],
+            "values": "bath.txt"
+        },
+        {
+            "type": "hydrology",
+            "dimensions": [ 2, 2 ],
+            "values": [
+                [1500, 1500],
+                [1500, 1500]
+            ]
+        }
+    ]
+}
